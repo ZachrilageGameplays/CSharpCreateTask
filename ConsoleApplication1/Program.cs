@@ -17,9 +17,9 @@ namespace SpeedyShopperV2
             string item = Console.ReadLine();
             return item;
         }
-        private static void SortShoppingList(List<string> list)
+        private static List<string> SortShoppingList(List<string> list)
         {
-
+            return list;
         }
         private static void ReturnShoppingListFinal()
         {
@@ -39,11 +39,11 @@ namespace SpeedyShopperV2
             {
                 ShoppingList.Add(AddItem());
             }
-            SortShoppingList(ShoppingList);
+            ShoppingListFinal = SortShoppingList(ShoppingList);
             ReturnShoppingListFinal();
             for (int j = 0; j <= itemcount; j++)
             {
-                Console.WriteLine(ShoppingList[j]);
+                Console.WriteLine(ShoppingListFinal[j]);
             }
             Console.ReadKey();
         }
