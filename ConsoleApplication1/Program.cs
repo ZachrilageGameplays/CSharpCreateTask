@@ -31,7 +31,7 @@ namespace SpeedyShopperV2
             Console.ForegroundColor = ConsoleColor.Green;
             return itemcount;
         }
-        private static List<List<string>> SortShoppingList(List<string> list, int itemcount)
+        private static void SortandDisplay(List<string> list, int itemcount)
         {
             List<List<string>> finallist = new List<List<string>>();
             List<List<string>> aisles = new List<List<string>>();
@@ -43,7 +43,7 @@ namespace SpeedyShopperV2
             List<string> aisle5 = new List<string>() { "bread", "cocoa", "coffee", "syrup", "tea" };
             List<string> aisle6 = new List<string>() { "juices", "seltzer" };
             List<string> aisle7 = new List<string>() { "cookies", "crackers", "soda" };
-            List<string> aisle8 = new List<string>() { "" };
+            List<string> aisle8 = new List<string>() { "candy" };
             List<string> aisle9 = new List<string>() { "chips", "seasonal" };
             List<string> aisle10 = new List<string>() { "aluminum foil", "freezer wrap", "napkins", "tissues" };
             List<string> aisle11 = new List<string>() { "matches" };
@@ -56,6 +56,7 @@ namespace SpeedyShopperV2
             aisles.Add(aisle4);
             aisles.Add(aisle5);
             aisles.Add(aisle6);
+            aisles.Add(aisle7);
             aisles.Add(aisle8);
             aisles.Add(aisle9);
             aisles.Add(aisle10);
@@ -63,25 +64,25 @@ namespace SpeedyShopperV2
             aisles.Add(aisle12);
             aisles.Add(aisle13);
             aisles.Add(aisle14);
+            int count = 1;
             foreach (var aisle in aisles)
             {
-                int i = Convert.ToInt32(aisle);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("These items are in aisle " + count + ":");
                 foreach(var item in aisle)
                 {
                     foreach(var item2 in ShoppingList)
                     {
                         if (item2 == item)
                         {
-
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine(item2);
+                            Console.ForegroundColor = ConsoleColor.Green;
                         }
                     }
                 }
+                count++;
             }
-            return finallist;
-        }
-        private static void ReturnShoppingListFinal()
-        {
-
         }
         static void Main(string[] args)
         {
@@ -119,8 +120,7 @@ namespace SpeedyShopperV2
             {
                 ShoppingList.Add(AddItem());    //This runs the add item code up top, which returns a string, that is then added to ShoppingList.
             }
-            ShoppingListFinal = SortShoppingList(ShoppingList, item_count);     //This runs the code that sorts the shopping list, and returns the sorted list and assigns it to ShoppingListFinal.
-            ReturnShoppingListFinal();  //This is one final method that takes ShoppingListFinal, analyzes it, and prints out by aisle the list in order, and at the end prints out what wasn't in any aisle at it's own section.
+            SortandDisplay(ShoppingList, item_count);     //This runs the code that sorts the shopping list, and returns the sorted list and assigns it to ShoppingListFinal.
             Console.ReadKey();
         }
     }
