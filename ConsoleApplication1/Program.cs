@@ -31,8 +31,9 @@ namespace SpeedyShopperV2
             Console.ForegroundColor = ConsoleColor.Green;
             return itemcount;
         }
-        private static List<string> SortShoppingList(List<string> list, int itemcount)
+        private static List<List<string>> SortShoppingList(List<string> list, int itemcount)
         {
+            List<List<string>> finallist = new List<List<string>>();
             List<List<string>> aisles = new List<List<string>>();
             //Declares list of all the items in all of the aisles.
             List<string> aisle1 = new List<string>() { "mexican", "international", "gourmet", "pasta", "pizza dough", "pizza sauce", "rice" };
@@ -64,17 +65,19 @@ namespace SpeedyShopperV2
             aisles.Add(aisle14);
             foreach (var aisle in aisles)
             {
-                Console.WriteLine(aisle);
+                int i = Convert.ToInt32(aisle);
                 foreach(var item in aisle)
                 {
-                    Console.WriteLine(" " + item);
                     foreach(var item2 in ShoppingList)
                     {
-                        Console.WriteLine("  " + item2);
+                        if (item2 == item)
+                        {
+
+                        }
                     }
                 }
             }
-            return list;
+            return finallist;
         }
         private static void ReturnShoppingListFinal()
         {
