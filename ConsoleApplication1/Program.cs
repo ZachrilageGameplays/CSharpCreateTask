@@ -33,9 +33,10 @@ namespace SpeedyShopperV2
         }
         private static void SortandDisplay(List<string> list, int itemcount)
         {
-            List<List<string>> finallist = new List<List<string>>();
+            //sets up location for all the aisles to go to be iterated through.
             List<List<string>> aisles = new List<List<string>>();
-            //Declares list of all the items in all of the aisles.
+            
+            //Declares list of all the items in all of the aisles available.
             List<string> aisle1 = new List<string>() { "mexican", "international", "gourmet", "pasta", "pizza dough", "pizza sauce", "rice" };
             List<string> aisle2 = new List<string>() { "asain foods", "bbq sauce", "beans", "mayo", "mustard", "relish", "salad dressing", "shortening", "soups", "canned vegetables" };
             List<string> aisle3 = new List<string>() { "baking needs", "baking", "bake ware", "cake mixes", "cake decor", "chocolate chips", "coconut", "cooking oil", "flour", "canned fruits", "gravy", "jams/jellies", "pudding", "salt", "spices", "stuffing", "sugar", "peanut butter" };
@@ -50,6 +51,8 @@ namespace SpeedyShopperV2
             List<string> aisle12 = new List<string>() { "house", "mop", "broom", "cleaning" };
             List<string> aisle13 = new List<string>() { "nuts" };
             List<string> aisle14 = new List<string>() { "frozen foods" };
+            
+            //Adds all the aisles to the list of aisles.
             aisles.Add(aisle1);
             aisles.Add(aisle2);
             aisles.Add(aisle3);
@@ -64,15 +67,24 @@ namespace SpeedyShopperV2
             aisles.Add(aisle12);
             aisles.Add(aisle13);
             aisles.Add(aisle14);
+            
+            //Sets count for the aisle number.
             int count = 1;
+            
+            //Iterating through each aisle.
             foreach (var aisle in aisles)
             {
+                //Write what aisle it is searching through for the items on the list.
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("These items are in aisle " + count + ":");
+                
+                //Iterates through all of the items in the current aisle.
                 foreach(var item in aisle)
                 {
+                    //Compares all of the items on the shopping list to the current item in the list.
                     foreach(var item2 in ShoppingList)
                     {
+                        //If both items are the same, write the item underneath the aisle it was searching through.
                         if (item2 == item)
                         {
                             Console.ForegroundColor = ConsoleColor.White;
@@ -81,6 +93,7 @@ namespace SpeedyShopperV2
                         }
                     }
                 }
+                //increase the count number so that you know what aisle the item was found.
                 count++;
             }
         }
@@ -98,12 +111,16 @@ namespace SpeedyShopperV2
             Console.WriteLine("|           bread just type bread.)*           |");
             Console.WriteLine("-----------------------------------------------");
             /***************************************************************************
+            *   ^                                                             ^        *
+            *   |                                                             |        *
             * This code was meant to be realistic, and useful. So, in creating this,   *
             * I wanted to get a map of some of the stores local to myself, but the     *
             * only one that I could get a map of was the local Hannafords. Thus, I     *
             * made a confirmation bit to ensure that the user was shopping at Hanna-   *
             * fords, and if they weren't, then it would tell the user that the program *
             * is pointless if you aren't, and proceeds to close the program.           *
+            *   |                                           |                          *
+            *   v                                           v                          *
             ***************************************************************************/
             Console.Write("Are you shopping at Hannafords?\n>");
             Console.ForegroundColor = ConsoleColor.White;
@@ -115,13 +132,14 @@ namespace SpeedyShopperV2
                 Console.ReadKey();
                 Environment.Exit(1);
             }
+            //If the user answered that they were shopping at Hannafords, the program runs itemcount, and assigns it to variable item_count.
             var item_count = itemcount();
             for (int i = 1; i <= item_count; i++)
             {
                 ShoppingList.Add(AddItem());    //This runs the add item code up top, which returns a string, that is then added to ShoppingList.
             }
-            SortandDisplay(ShoppingList, item_count);     //This runs the code that sorts the shopping list, and returns the sorted list and assigns it to ShoppingListFinal.
-            Console.ReadKey();
+            SortandDisplay(ShoppingList, item_count);     //This runs the code that sorts the shopping list, and returns the output.
+            Console.ReadKey();    //Leaves the result on screen long enough for the user to see the result and do what they would like with it, before allowing the user to close the program.
         }
     }
 }
