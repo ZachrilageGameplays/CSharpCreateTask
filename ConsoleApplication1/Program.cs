@@ -43,7 +43,7 @@ namespace SpeedyShopperV2
             List<string> aisle5 = new List<string>() { "bread", "cocoa", "coffee", "syrup", "tea" };
             List<string> aisle6 = new List<string>() { "juices", "seltzer" };
             List<string> aisle7 = new List<string>() { "cookies", "crackers", "soda" };
-            List<string> aisle8 = new List<string>() { "candy" };
+            List<string> aisle8 = new List<string>() {  };
             List<string> aisle9 = new List<string>() { "chips", "seasonal" };
             List<string> aisle10 = new List<string>() { "aluminum foil", "freezer wrap", "napkins", "tissues" };
             List<string> aisle11 = new List<string>() { "matches" };
