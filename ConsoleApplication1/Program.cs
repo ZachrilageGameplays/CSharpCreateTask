@@ -134,7 +134,7 @@ namespace SpeedyShopperV2
             Console.WriteLine("|    to enter. (i.e. Instead of whole wheat    |");
             Console.WriteLine("|           bread just type bread.)*           |");
             Console.WriteLine("------------------------------------------------");
-            /***************************************************************************
+            /**************************************************************************\
             *   ^                                                             ^        *
             *   |                                                             |        *
             * This code was meant to be realistic, and useful. So, in creating this,   *
@@ -145,7 +145,7 @@ namespace SpeedyShopperV2
             * is pointless if you aren't, and proceeds to close the program.           *
             *   |            |                                                         *
             *   v            v                                                         *
-            ***************************************************************************/
+            \**************************************************************************/
             ShoppingAtHannafords();
             //If the user answered that they were shopping at Hannafords, the program runs itemcount, and assigns it to variable item_count.
             var item_count = itemcount();
