@@ -12,8 +12,25 @@ namespace SpeedyShopperV2
         private static List<string> ShoppingList = new List<string>() { "" };
         private static List<string> ShoppingListFinal = new List<string>() { "" };
 
-        //Method that allows the user to add the items that they have on their shopping list to the list called ShoppingList.
-        private static string AddItem()
+        //Initialize the detecion for Shopping at Hannafords.
+        private static void ShoppingAtHannafords()
+        {
+        Console.Write("Are you shopping at Hannafords?\n>");
+            Console.ForegroundColor = ConsoleColor.White;
+            string answer = Console.ReadLine();
+        Console.ForegroundColor = ConsoleColor.Green;
+            if (answer.ToUpper() != "YES")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Sorry!");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write("This code is meant to be specific to Hannafords only,\nso it is pointless to sort your list via aisle if you\naren't shopping at Hannafords.\n\nGoodbye!");
+                Console.ReadKey();
+                Environment.Exit(1);
+            }
+        }
+    //Method that allows the user to add the items that they have on their shopping list to the list called ShoppingList.
+    private static string AddItem()
         {
             List<string> ShoppingList = new List<string>() { "" };
             Console.ForegroundColor = ConsoleColor.Green;
@@ -96,6 +113,13 @@ namespace SpeedyShopperV2
                 //increase the count number so that you know what aisle the item was found.
                 count++;
             }
+            //A little plug at the end to tell the user that the program is still early in development, and while the code is done, it might not work to the user's full intent, and where to give thoughts and suggestions.
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Please keep in mind while this is a 2nd version to Speedy Shopper it is still in Alpha testing.\nPlease don't be surprised about items not being specific or in the proper aisles,\nit is merely a proof of concept and something that might be fleshed out in the future.\nComments? Ideas? Post it on my GitHub! @");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("https://github.com/ZachrilageGameplays/CSharpCreateTask");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("\n\nPress Any Key To Close The Program. . .");
         }
         static void Main(string[] args)
         {
@@ -119,19 +143,10 @@ namespace SpeedyShopperV2
             * made a confirmation bit to ensure that the user was shopping at Hanna-   *
             * fords, and if they weren't, then it would tell the user that the program *
             * is pointless if you aren't, and proceeds to close the program.           *
-            *   |                                           |                          *
-            *   v                                           v                          *
+            *   |            |                                                         *
+            *   v            v                                                         *
             ***************************************************************************/
-            Console.Write("Are you shopping at Hannafords?\n>");
-            Console.ForegroundColor = ConsoleColor.White;
-            string answer = Console.ReadLine();
-            Console.ForegroundColor = ConsoleColor.Green;
-            if (answer.ToUpper() != "YES")
-            {
-                Console.WriteLine("Sorry, but this code is meant to be specific to Hannafords only,\nso it is pointless to sort your list via aisle if you aren't shopping at Hannafords.\nGoodbye!");
-                Console.ReadKey();
-                Environment.Exit(1);
-            }
+            ShoppingAtHannafords();
             //If the user answered that they were shopping at Hannafords, the program runs itemcount, and assigns it to variable item_count.
             var item_count = itemcount();
             for (int i = 1; i <= item_count; i++)
