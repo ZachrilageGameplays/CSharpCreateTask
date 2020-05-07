@@ -133,7 +133,7 @@ namespace SpeedyShopperV2
             Console.WriteLine("|    *Please be generic in what you choose     |");
             Console.WriteLine("|    to enter. (i.e. Instead of whole wheat    |");
             Console.WriteLine("|           bread just type bread.)*           |");
-            Console.WriteLine("-----------------------------------------------");
+            Console.WriteLine("------------------------------------------------");
             /***************************************************************************
             *   ^                                                             ^        *
             *   |                                                             |        *
