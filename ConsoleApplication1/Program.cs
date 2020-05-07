@@ -125,7 +125,7 @@ namespace SpeedyShopperV2
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("|          Welcome to Speedy Shopper!          |");
+            Console.WriteLine("|         Welcome to Speedy ShopperV2!         |");
             Console.WriteLine("|     Use this program to save you time by     |");
             Console.WriteLine("|  having it organize your shopping list for   |");
             Console.WriteLine("|    you so you know what is in each aisle!    |");
