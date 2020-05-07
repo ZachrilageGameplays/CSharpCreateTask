@@ -29,8 +29,9 @@ namespace SpeedyShopperV2
                 Environment.Exit(1);
             }
         }
-    //Method that allows the user to add the items that they have on their shopping list to the list called ShoppingList.
-    private static string AddItem()
+
+        //Method that allows the user to add the items that they have on their shopping list to the list called ShoppingList.
+        private static string AddItem()
         {
             List<string> ShoppingList = new List<string>() { "" };
             Console.ForegroundColor = ConsoleColor.Green;
@@ -39,6 +40,7 @@ namespace SpeedyShopperV2
             string item = Console.ReadLine();
             return item;
         }
+
         //This method sorts all of the items previously added to shopping list.
         private static int itemcount()
         {
@@ -48,6 +50,8 @@ namespace SpeedyShopperV2
             Console.ForegroundColor = ConsoleColor.Green;
             return itemcount;
         }
+
+        //Section of code that sorts the shopping list given by user input and then displays it in aisle order.
         private static void SortandDisplay(List<string> list, int itemcount)
         {
             //sets up location for all the aisles to go to be iterated through.
@@ -121,6 +125,8 @@ namespace SpeedyShopperV2
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("\n\nPress Any Key To Close The Program. . .");
         }
+
+        //Main code run by compiler and where methods are initialized.
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -147,7 +153,6 @@ namespace SpeedyShopperV2
             *   v            v                                                         *
             \**************************************************************************/
             ShoppingAtHannafords();
-            //If the user answered that they were shopping at Hannafords, the program runs itemcount, and assigns it to variable item_count.
             var item_count = itemcount();
             for (int i = 1; i <= item_count; i++)
             {
