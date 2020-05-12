@@ -52,7 +52,7 @@ namespace SpeedyShopperV2
         }
 
         //Section of code that sorts the shopping list given by user input and then displays it in aisle order.
-        private static void SortandDisplay(List<string> list, int itemcount)
+        private static void SortandDisplay(List<string> list)
         {
             //sets up location for all the aisles to go to be iterated through.
             List<List<string>> aisles = new List<List<string>>();
@@ -103,7 +103,7 @@ namespace SpeedyShopperV2
                 foreach(var item in aisle)
                 {
                     //Compares all of the items on the shopping list to the current item in the list.
-                    foreach(var item2 in ShoppingList)
+                    foreach(var item2 in list)
                     {
                         //If both items are the same, write the item underneath the aisle it was searching through.
                         if (item2 == item)
@@ -117,6 +117,7 @@ namespace SpeedyShopperV2
                 //increase the count number so that you know what aisle the item was found.
                 count++;
             }
+            NotInAisle(ShoppingList);
             //A little plug at the end to tell the user that the program is still early in development, and while the code is done, it might not work to the user's full intent, and where to give thoughts and suggestions.
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Please keep in mind while this is a 2nd version to Speedy Shopper it is still in Alpha testing.\nPlease don't be surprised about items not being specific or in the proper aisles,\nit is merely a proof of concept and something that might be fleshed out in the future.\nComments? Ideas? Post it on my GitHub! @");
@@ -125,9 +126,81 @@ namespace SpeedyShopperV2
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("\n\nPress Any Key To Close The Program. . .");
         }
+        private static void NotInAisle(List<string> list)
+        {
+            //sets up the boolean for testing if in aisle or not.
+            bool inAisle = false;
 
-        //Main code run by compiler and where methods are initialized.
-        static void Main(string[] args)
+            //sets up location for all the aisles to go to be iterated through.
+            List<List<string>> aisles = new List<List<string>>();
+
+            //storage for the items not in any aisle.
+            List<string> notInAisle = new List<string>();
+
+            //Declares list of all the items in all of the aisles available.
+            List<string> aisle1 = new List<string>() { "mexican", "international", "gourmet", "pasta", "pizza dough", "pizza sauce", "rice" };
+            List<string> aisle2 = new List<string>() { "asain foods", "bbq sauce", "beans", "mayo", "mustard", "relish", "salad dressing", "shortening", "soups", "canned vegetables" };
+            List<string> aisle3 = new List<string>() { "baking needs", "baking", "bake ware", "cake mixes", "cake decor", "chocolate chips", "coconut", "cooking oil", "flour", "canned fruits", "gravy", "jams/jellies", "pudding", "salt", "spices", "stuffing", "sugar", "peanut butter" };
+            List<string> aisle4 = new List<string>() { "cereal", "granola", "Honey", "oats", "pancake mix" };
+            List<string> aisle5 = new List<string>() { "bread", "cocoa", "coffee", "syrup", "tea" };
+            List<string> aisle6 = new List<string>() { "juices", "seltzer" };
+            List<string> aisle7 = new List<string>() { "cookies", "crackers", "soda" };
+            List<string> aisle8 = new List<string>() { };
+            List<string> aisle9 = new List<string>() { "chips", "seasonal" };
+            List<string> aisle10 = new List<string>() { "aluminum foil", "freezer wrap", "napkins", "tissues" };
+            List<string> aisle11 = new List<string>() { "matches" };
+            List<string> aisle12 = new List<string>() { "house", "mop", "broom", "cleaning" };
+            List<string> aisle13 = new List<string>() { "nuts" };
+            List<string> aisle14 = new List<string>() { "frozen foods" };
+
+            //Adds all the aisles to the list of aisles.
+            aisles.Add(aisle1);
+            aisles.Add(aisle2);
+            aisles.Add(aisle3);
+            aisles.Add(aisle4);
+            aisles.Add(aisle5);
+            aisles.Add(aisle6);
+            aisles.Add(aisle7);
+            aisles.Add(aisle8);
+            aisles.Add(aisle9);
+            aisles.Add(aisle10);
+            aisles.Add(aisle11);
+            aisles.Add(aisle12);
+            aisles.Add(aisle13);
+            aisles.Add(aisle14);
+
+            //tells the user in a bold color that something the entered may have been wrong or too specific. 
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("Items below are either too specific or are not found in the store.\nPlease ensure your spelling is correct and try again.");
+            Console.ForegroundColor = ConsoleColor.White;
+            // the loop for detecting if the items on the list were in fact in an aisle.
+            foreach (var item in list)
+            {
+                inAisle = false;
+                foreach (var aisle in aisles)
+                {
+                    foreach (var item2 in aisle)
+                    {
+                        if (item == item2)
+                        {
+                            inAisle = true;
+                        }
+                    }
+                }
+                if (inAisle == false)
+                {
+                    notInAisle.Add(item);
+                }
+            }
+
+            foreach (var item in notInAisle)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+    //Main code run by compiler and where methods are initialized.
+    static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------------------");
@@ -158,7 +231,7 @@ namespace SpeedyShopperV2
             {
                 ShoppingList.Add(AddItem());    //This runs the add item code up top, which returns a string, that is then added to ShoppingList.
             }
-            SortandDisplay(ShoppingList, item_count);     //This runs the code that sorts the shopping list, and returns the output.
+            SortandDisplay(ShoppingList);     //This runs the code that sorts the shopping list, and returns the output.
             Console.ReadKey();    //Leaves the result on screen long enough for the user to see the result and do what they would like with it, before allowing the user to close the program.
         }
     }
