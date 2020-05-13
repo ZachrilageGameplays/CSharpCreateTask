@@ -120,7 +120,7 @@ namespace SpeedyShopperV2
             NotInAisle(ShoppingList);
             //A little plug at the end to tell the user that the program is still early in development, and while the code is done, it might not work to the user's full intent, and where to give thoughts and suggestions.
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("Please keep in mind while this is a 2nd version to Speedy Shopper it is still in Alpha testing.\nPlease don't be surprised about items not being specific or in the proper aisles,\nit is merely a proof of concept and something that might be fleshed out in the future.\nComments? Ideas? Post it on my GitHub! @");
+            Console.Write("\nPlease keep in mind while this is a 2nd version to Speedy Shopper it is still in Alpha testing.\nPlease don't be surprised about items not being specific or in the proper aisles,\nit is merely a proof of concept and something that might be fleshed out in the future.\nComments? Ideas? Post it on my GitHub! @");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("https://github.com/ZachrilageGameplays/CSharpCreateTask");
             Console.ForegroundColor = ConsoleColor.Green;
